@@ -35,7 +35,7 @@ struct MainView: View {
                         }
                         ForEach(space.lists ?? [], id: \.id) { list in
                             NavigationLink {
-                                ListView()
+                                ListView(list: list)
                             } label: {
                                 HStack(spacing: 8.0) {
                                     Image(systemName: "list.dash")
@@ -61,6 +61,7 @@ struct MainView: View {
             .navigationTitle("Spaces")
         }
         .task {
+            loadAPIKeys()
             if let workspaceList = await getWorkspaces() {
                 workspaces = workspaceList.teams
             }
@@ -77,6 +78,16 @@ struct MainView: View {
                     if let listsList = await getFolderLessLists(spaceID: spaces[i].id) {
                         spaces[i].setLists(listsList.lists)
                     }
+                }
+            }
+        }
+    }
+    
+    func loadAPIKeys() {
+        if let path = Bundle.main.path(forResource: "APIKeys", ofType: "plist") {
+            for (key, value) in NSDictionary(contentsOfFile: path)! {
+                if key as! String == "clickup" {
+                    apiKey = value as! String
                 }
             }
         }

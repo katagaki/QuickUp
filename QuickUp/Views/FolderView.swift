@@ -16,7 +16,7 @@ struct FolderView: View {
         List {
             ForEach(folderLists, id: \.id) { list in
                 NavigationLink {
-                    ListView()
+                    ListView(list: list)
                 } label: {
                     Text(list.name)
                 }

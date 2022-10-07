@@ -10,4 +10,4 @@ import Foundation
 public let defaults: UserDefaults = UserDefaults.standard
 
 public let apiEndpoint: String = "https://api.clickup.com/api/v2"
-public let apiKey: String = ""
+public var apiKey: String = ""
