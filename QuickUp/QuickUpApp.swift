@@ -11,7 +11,10 @@ import SwiftUI
 struct QuickUpApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainView()
+        }
+        .commands {
+            SidebarCommands()
         }
     }
 }

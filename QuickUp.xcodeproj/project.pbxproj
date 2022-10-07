@@ -8,18 +8,43 @@
 
 /* Begin PBXBuildFile section */
 		E411092A28EFF82D0073725E /* QuickUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411092928EFF82D0073725E /* QuickUpApp.swift */; };
-		E411092C28EFF82D0073725E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411092B28EFF82D0073725E /* ContentView.swift */; };
+		E411092C28EFF82D0073725E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411092B28EFF82D0073725E /* MainView.swift */; };
 		E411092E28EFF82E0073725E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E411092D28EFF82E0073725E /* Assets.xcassets */; };
 		E411093128EFF82E0073725E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E411093028EFF82E0073725E /* Preview Assets.xcassets */; };
+		E411093A28EFF8840073725E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093928EFF8840073725E /* Global.swift */; };
+		E411093D28EFF8AF0073725E /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093C28EFF8AF0073725E /* URLRequest.swift */; };
+		E411093F28EFF9F70073725E /* Workspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093E28EFF9F70073725E /* Workspaces.swift */; };
+		E411094128F0014B0073725E /* Spaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094028F0014B0073725E /* Spaces.swift */; };
+		E411094328F001540073725E /* Users.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094228F001540073725E /* Users.swift */; };
+		E411094928F00F460073725E /* Folders.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094828F00F460073725E /* Folders.swift */; };
+		E411094B28F00F4A0073725E /* Lists.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094A28F00F4A0073725E /* Lists.swift */; };
+		E411094D28F012240073725E /* Statuses.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094C28F012240073725E /* Statuses.swift */; };
+		E411094F28F0150D0073725E /* ListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411094E28F0150D0073725E /* ListView.swift */; };
+		E411095128F017D80073725E /* CodableIgnored.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095028F017D80073725E /* CodableIgnored.swift */; };
+		E411095328F01AE70073725E /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095228F01AE70073725E /* Priorities.swift */; };
+		E411095528F01EFF0073725E /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095428F01EFF0073725E /* FolderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		E411092628EFF82D0073725E /* QuickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411092928EFF82D0073725E /* QuickUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickUpApp.swift; sourceTree = "<group>"; };
-		E411092B28EFF82D0073725E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		E411092B28EFF82D0073725E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E411092D28EFF82E0073725E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E411093028EFF82E0073725E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E411093228EFF82E0073725E /* QuickUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickUp.entitlements; sourceTree = "<group>"; };
+		E411093928EFF8840073725E /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
+		E411093C28EFF8AF0073725E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
+		E411093E28EFF9F70073725E /* Workspaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Workspaces.swift; sourceTree = "<group>"; };
+		E411094028F0014B0073725E /* Spaces.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spaces.swift; sourceTree = "<group>"; };
+		E411094228F001540073725E /* Users.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Users.swift; sourceTree = "<group>"; };
+		E411094428F00D200073725E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		E411094828F00F460073725E /* Folders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Folders.swift; sourceTree = "<group>"; };
+		E411094A28F00F4A0073725E /* Lists.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lists.swift; sourceTree = "<group>"; };
+		E411094C28F012240073725E /* Statuses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Statuses.swift; sourceTree = "<group>"; };
+		E411094E28F0150D0073725E /* ListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListView.swift; sourceTree = "<group>"; };
+		E411095028F017D80073725E /* CodableIgnored.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodableIgnored.swift; sourceTree = "<group>"; };
+		E411095228F01AE70073725E /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
+		E411095428F01EFF0073725E /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +77,11 @@
 		E411092828EFF82D0073725E /* QuickUp */ = {
 			isa = PBXGroup;
 			children = (
+				E411094428F00D200073725E /* Info.plist */,
 				E411092928EFF82D0073725E /* QuickUpApp.swift */,
-				E411092B28EFF82D0073725E /* ContentView.swift */,
+				E411093828EFF83E0073725E /* API */,
+				E411093B28EFF8A10073725E /* Utilities */,
+				E411094728F00E5C0073725E /* Views */,
 				E411092D28EFF82E0073725E /* Assets.xcassets */,
 				E411093228EFF82E0073725E /* QuickUp.entitlements */,
 				E411092F28EFF82E0073725E /* Preview Content */,
@@ -67,6 +95,40 @@
 				E411093028EFF82E0073725E /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		E411093828EFF83E0073725E /* API */ = {
+			isa = PBXGroup;
+			children = (
+				E411093928EFF8840073725E /* Global.swift */,
+				E411094228F001540073725E /* Users.swift */,
+				E411094C28F012240073725E /* Statuses.swift */,
+				E411095228F01AE70073725E /* Priorities.swift */,
+				E411093E28EFF9F70073725E /* Workspaces.swift */,
+				E411094028F0014B0073725E /* Spaces.swift */,
+				E411094828F00F460073725E /* Folders.swift */,
+				E411094A28F00F4A0073725E /* Lists.swift */,
+			);
+			path = API;
+			sourceTree = "<group>";
+		};
+		E411093B28EFF8A10073725E /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				E411093C28EFF8AF0073725E /* URLRequest.swift */,
+				E411095028F017D80073725E /* CodableIgnored.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		E411094728F00E5C0073725E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E411092B28EFF82D0073725E /* MainView.swift */,
+				E411095428F01EFF0073725E /* FolderView.swift */,
+				E411094E28F0150D0073725E /* ListView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +201,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E411092C28EFF82D0073725E /* ContentView.swift in Sources */,
+				E411093F28EFF9F70073725E /* Workspaces.swift in Sources */,
+				E411094B28F00F4A0073725E /* Lists.swift in Sources */,
+				E411092C28EFF82D0073725E /* MainView.swift in Sources */,
 				E411092A28EFF82D0073725E /* QuickUpApp.swift in Sources */,
+				E411094D28F012240073725E /* Statuses.swift in Sources */,
+				E411095128F017D80073725E /* CodableIgnored.swift in Sources */,
+				E411094928F00F460073725E /* Folders.swift in Sources */,
+				E411093A28EFF8840073725E /* Global.swift in Sources */,
+				E411095528F01EFF0073725E /* FolderView.swift in Sources */,
+				E411094F28F0150D0073725E /* ListView.swift in Sources */,
+				E411094128F0014B0073725E /* Spaces.swift in Sources */,
+				E411093D28EFF8AF0073725E /* URLRequest.swift in Sources */,
+				E411095328F01AE70073725E /* Priorities.swift in Sources */,
+				E411094328F001540073725E /* Users.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -265,6 +339,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuickUp/QuickUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -274,7 +349,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickUp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -282,8 +362,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.QuickUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -292,6 +376,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuickUp/QuickUp.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
@@ -301,7 +386,12 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = QuickUp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.utilities";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				INFOPLIST_KEY_UIRequiresFullScreen = NO;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -309,8 +399,12 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.QuickUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
