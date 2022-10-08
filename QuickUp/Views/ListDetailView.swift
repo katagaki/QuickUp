@@ -19,10 +19,16 @@ struct ListDetailView: View {
             if let task = task {
                 HStack(alignment: .center, spacing: 4.0) {
                     Text(task.name)
-                        .font(.largeTitle)
+                        .font(.title2)
+                }
+                Divider()
+                HStack(alignment: .center, spacing: 4.0) {
+                    Text(task.status.status.uppercased())
+                        .foregroundColor(Color(hex: task.status.color))
+                        .font(.system(.subheadline))
                     Spacer()
                     Text(task.custom_id != nil ? task.custom_id! : task.id)
-                        .font(.system(.body, design: .monospaced))
+                        .font(.system(.subheadline, design: .monospaced))
                         .padding(4.0)
                         .overlay {
                             RoundedRectangle(cornerRadius: 4.0)
@@ -32,12 +38,7 @@ struct ListDetailView: View {
                         }
                 }
                 Divider()
-                HStack(alignment: .center, spacing: 4.0) {
-                    Text(task.status.status.uppercased())
-                        .foregroundColor(Color(hex: task.status.color))
-                }
-                Divider()
-                Text(task.description ?? "")
+                TextEditor(text: .constant(task.description ?? ""))
                 Spacer()
                 Divider()
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
