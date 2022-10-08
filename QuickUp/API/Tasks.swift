@@ -27,7 +27,7 @@ struct CUTask: Codable, Identifiable {
     var assignees: [CUMemberInfo]
     var watchers: [CUMemberInfo]
     var checklists: [CUTaskChecklist]?
-    var tags: [String]
+    var tags: [CUTaskTag]
     var parent: String?
     var priority: CUPriority?
     var due_date: String?
@@ -68,6 +68,13 @@ struct CUTaskChecklistItem: Codable {
     var parent: String?
     var date_created: String
     var children: [String]
+}
+
+struct CUTaskTag: Codable {
+    var name: String
+    var tag_fg: String
+    var tag_bg: String
+    var creator: Int
 }
 
 struct CUTaskLink: Codable {

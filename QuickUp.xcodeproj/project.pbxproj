@@ -24,6 +24,10 @@
 		E411095328F01AE70073725E /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095228F01AE70073725E /* Priorities.swift */; };
 		E411095528F01EFF0073725E /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095428F01EFF0073725E /* FolderView.swift */; };
 		E411095728F0330B0073725E /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E411095628F0330B0073725E /* APIKeys.plist */; };
+		E4A6378728F132F3005C9789 /* Date.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6378628F132F3005C9789 /* Date.swift */; };
+		E4A6378928F136E0005C9789 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6378828F136E0005C9789 /* Color.swift */; };
+		E4A6378B28F137F6005C9789 /* ListTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6378A28F137F6005C9789 /* ListTableView.swift */; };
+		E4A6378D28F137FD005C9789 /* ListDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A6378C28F137FD005C9789 /* ListDetailView.swift */; };
 		E4A86E0328F106AE003A7D09 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A86E0228F106AE003A7D09 /* Tasks.swift */; };
 		E4A86E0528F10886003A7D09 /* CustomFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A86E0428F10886003A7D09 /* CustomFields.swift */; };
 /* End PBXBuildFile section */
@@ -49,6 +53,10 @@
 		E411095228F01AE70073725E /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
 		E411095428F01EFF0073725E /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		E411095628F0330B0073725E /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		E4A6378628F132F3005C9789 /* Date.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Date.swift; sourceTree = "<group>"; };
+		E4A6378828F136E0005C9789 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		E4A6378A28F137F6005C9789 /* ListTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListTableView.swift; sourceTree = "<group>"; };
+		E4A6378C28F137FD005C9789 /* ListDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListDetailView.swift; sourceTree = "<group>"; };
 		E4A86E0228F106AE003A7D09 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
 		E4A86E0428F10886003A7D09 /* CustomFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFields.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -124,8 +132,10 @@
 		E411093B28EFF8A10073725E /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				E411093C28EFF8AF0073725E /* URLRequest.swift */,
 				E411095028F017D80073725E /* CodableIgnored.swift */,
+				E4A6378828F136E0005C9789 /* Color.swift */,
+				E4A6378628F132F3005C9789 /* Date.swift */,
+				E411093C28EFF8AF0073725E /* URLRequest.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -136,6 +146,8 @@
 				E411092B28EFF82D0073725E /* MainView.swift */,
 				E411095428F01EFF0073725E /* FolderView.swift */,
 				E411094E28F0150D0073725E /* ListView.swift */,
+				E4A6378A28F137F6005C9789 /* ListTableView.swift */,
+				E4A6378C28F137FD005C9789 /* ListDetailView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -168,7 +180,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1400;
+				LastUpgradeCheck = 1410;
 				TargetAttributes = {
 					E411092528EFF82D0073725E = {
 						CreatedOnToolsVersion = 14.0.1;
@@ -217,6 +229,7 @@
 				E411092A28EFF82D0073725E /* QuickUpApp.swift in Sources */,
 				E411094D28F012240073725E /* Statuses.swift in Sources */,
 				E411095128F017D80073725E /* CodableIgnored.swift in Sources */,
+				E4A6378728F132F3005C9789 /* Date.swift in Sources */,
 				E411094928F00F460073725E /* Folders.swift in Sources */,
 				E411093A28EFF8840073725E /* Global.swift in Sources */,
 				E411095528F01EFF0073725E /* FolderView.swift in Sources */,
@@ -227,6 +240,9 @@
 				E4A86E0328F106AE003A7D09 /* Tasks.swift in Sources */,
 				E411094328F001540073725E /* Users.swift in Sources */,
 				E4A86E0528F10886003A7D09 /* CustomFields.swift in Sources */,
+				E4A6378D28F137FD005C9789 /* ListDetailView.swift in Sources */,
+				E4A6378928F136E0005C9789 /* Color.swift in Sources */,
+				E4A6378B28F137F6005C9789 /* ListTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,6 +282,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -326,6 +343,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -353,9 +371,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuickUp/QuickUp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuickUp/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -367,10 +387,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.QuickUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -390,9 +412,11 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = NO;
 				CODE_SIGN_ENTITLEMENTS = QuickUp/QuickUp.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"QuickUp/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -404,10 +428,12 @@
 				INFOPLIST_KEY_UIRequiresFullScreen = NO;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 13.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tsubuzaki.QuickUp;
 				PRODUCT_NAME = "$(TARGET_NAME)";

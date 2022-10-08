@@ -11,6 +11,7 @@ struct MainView: View {
     
     @State var workspaces: [CUWorkspace] = []
     @State var spaces: [CUSpace] = []
+    @State var searchTerm: String = ""
     
     var body: some View {
         NavigationView {
@@ -58,6 +59,10 @@ struct MainView: View {
                 }
             }
             .listStyle(.sidebar)
+            .searchable(text: $searchTerm)
+            .onChange(of: searchTerm, perform: { newValue in
+                // TODO: Search tasks
+            })
             .navigationTitle("Spaces")
         }
         .task {
