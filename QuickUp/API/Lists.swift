@@ -14,20 +14,21 @@ struct CUListsList: Codable {
 struct CUList: Codable {
     var id: String
     var name: String
-    var orderindex: Int
+    var access: Bool?
+    var orderindex: Int?
     var content: String?
     var status: CUStatus?
     var priority: CUPriority?
     var assignee: String?
-    var task_count: Int
+    var task_count: Int?
     var due_date: String?
     var start_date: String?
     var folder: CUFolder?
-    var space: CUSpace
-    var archived: Bool
+    var space: CUSpace?
+    var archived: Bool?
     var override_statuses: Bool?
     var statuses: [CUStatus]?
-    var permission_level: String
+    var permission_level: String?
 }
 
 func getFolderLessLists(spaceID: String, archived: Bool = false) async -> CUListsList? {

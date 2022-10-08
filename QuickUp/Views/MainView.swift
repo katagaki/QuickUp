@@ -46,7 +46,7 @@ struct MainView: View {
                         }
                     } header: {
                         HStack(spacing: 8.0) {
-                            Text(space.name)
+                            Text(space.name ?? "Untitled Space")
                             if space.private! {
                                 Image(systemName: "lock.fill")
                             }

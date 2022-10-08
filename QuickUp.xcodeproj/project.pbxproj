@@ -24,6 +24,8 @@
 		E411095328F01AE70073725E /* Priorities.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095228F01AE70073725E /* Priorities.swift */; };
 		E411095528F01EFF0073725E /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411095428F01EFF0073725E /* FolderView.swift */; };
 		E411095728F0330B0073725E /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = E411095628F0330B0073725E /* APIKeys.plist */; };
+		E4A86E0328F106AE003A7D09 /* Tasks.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A86E0228F106AE003A7D09 /* Tasks.swift */; };
+		E4A86E0528F10886003A7D09 /* CustomFields.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4A86E0428F10886003A7D09 /* CustomFields.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -47,6 +49,8 @@
 		E411095228F01AE70073725E /* Priorities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Priorities.swift; sourceTree = "<group>"; };
 		E411095428F01EFF0073725E /* FolderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		E411095628F0330B0073725E /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
+		E4A86E0228F106AE003A7D09 /* Tasks.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tasks.swift; sourceTree = "<group>"; };
+		E4A86E0428F10886003A7D09 /* CustomFields.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomFields.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +115,8 @@
 				E411094028F0014B0073725E /* Spaces.swift */,
 				E411094828F00F460073725E /* Folders.swift */,
 				E411094A28F00F4A0073725E /* Lists.swift */,
+				E4A86E0228F106AE003A7D09 /* Tasks.swift */,
+				E4A86E0428F10886003A7D09 /* CustomFields.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -218,7 +224,9 @@
 				E411094128F0014B0073725E /* Spaces.swift in Sources */,
 				E411093D28EFF8AF0073725E /* URLRequest.swift in Sources */,
 				E411095328F01AE70073725E /* Priorities.swift in Sources */,
+				E4A86E0328F106AE003A7D09 /* Tasks.swift in Sources */,
 				E411094328F001540073725E /* Users.swift in Sources */,
+				E4A86E0528F10886003A7D09 /* CustomFields.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

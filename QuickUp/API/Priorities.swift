@@ -8,6 +8,8 @@
 import Foundation
 
 struct CUPriority: Codable {
+    var id: String?
     var priority: String
     var color: String
+    var orderindex: String?
 }

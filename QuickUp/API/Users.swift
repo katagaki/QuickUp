@@ -15,5 +15,7 @@ struct CUMemberInfo: Codable {
     var id: Int
     var username: String?
     var color: String?
+    var initials: String?
+    var email: String?
     var profilePicture: String?
 }

@@ -15,7 +15,7 @@ struct CUWorkspace: Codable {
     var id: String
     var name: String
     var color: String
-    var avatar: String
+    var avatar: String?
     var members: [CUMember]
 }
 

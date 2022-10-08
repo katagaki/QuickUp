@@ -13,7 +13,7 @@ struct CUSpaceList: Codable {
 
 struct CUSpace: Codable {
     var id: String
-    var name: String
+    var name: String?
     var `private`: Bool?
     var statuses: [CUStatus]?
     var multiple_assignees: Bool?
