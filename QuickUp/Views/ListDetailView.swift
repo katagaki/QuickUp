@@ -39,6 +39,7 @@ struct ListDetailView: View {
                 }
                 Divider()
                 TextEditor(text: .constant(task.description ?? ""))
+                    .scrollContentBackground(.hidden)
                 Spacer()
                 Divider()
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
