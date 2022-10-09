@@ -35,7 +35,7 @@ struct CUTask: Codable, Identifiable {
     var points: Int?
     var time_estimate: Int?
     var custom_fields: [CUCustomField]
-    var dependencies: [String]
+    var dependencies: [CUTaskDependency]
     var linked_tasks: [CUTaskLink]
     var team_id: String
     var url: String
@@ -62,7 +62,7 @@ struct CUTaskChecklistItem: Codable {
     var id: String
     var name: String
     var orderindex: Int
-    var assignee: String?
+    var assignee: CUMemberInfo?
     var group_assignee: String?
     var resolved: Bool
     var parent: String?
@@ -75,6 +75,15 @@ struct CUTaskTag: Codable {
     var tag_fg: String
     var tag_bg: String
     var creator: Int
+}
+
+struct CUTaskDependency: Codable {
+    var task_id: String
+    var depends_on: String
+    var type: Int
+    var date_created: String
+    var userid: String
+    var workspace_id: String
 }
 
 struct CUTaskLink: Codable {

@@ -19,7 +19,7 @@ struct CUList: Codable {
     var content: String?
     var status: CUStatus?
     var priority: CUPriority?
-    var assignee: String?
+    var assignee: [CUMemberInfo]?
     var task_count: Int?
     var due_date: String?
     var start_date: String?
