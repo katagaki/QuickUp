@@ -38,8 +38,12 @@ struct ListDetailView: View {
                         }
                 }
                 Divider()
-                TextEditor(text: .constant(task.description ?? ""))
-                    .scrollContentBackground(.hidden)
+                if #available(macOS 13.0, *) {
+                    TextEditor(text: .constant(task.description ?? ""))
+                        .scrollContentBackground(.hidden)
+                } else {
+                    TextEditor(text: .constant(task.description ?? ""))
+                }
                 Spacer()
                 Divider()
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
