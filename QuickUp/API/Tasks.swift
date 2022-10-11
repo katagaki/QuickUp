@@ -74,7 +74,7 @@ struct CUTaskTag: Codable {
     var name: String
     var tag_fg: String
     var tag_bg: String
-    var creator: Int
+    var creator: Int?
 }
 
 struct CUTaskDependency: Codable {
