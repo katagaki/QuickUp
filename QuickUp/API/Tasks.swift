@@ -103,6 +103,7 @@ enum CUTaskOrder: String {
 
 func getTasks(listID: String,
               archived: Bool = false,
+              page: Int = 0,
               orderBy order: CUTaskOrder = .CreatedDate,
               inReverseOrder reversed: Bool = false,
               includeSubtasks: Bool = false,
@@ -111,7 +112,7 @@ func getTasks(listID: String,
     let statusQuery = statuses.reduce("statuses=") { s1, s2 in
         s1 + "&statuses=" + s2
     }
-    let request = request(url: "\(apiEndpoint)/list/\(listID)/task?archived=\(archived ? "true" : "false")&\(order.rawValue)&reverse=\(reversed ? "true" : "false")&subtasks=\(includeSubtasks ? "true" : "false&\(statusQuery)&include_closed=\(includeClosed ? "true" : "false")")",
+    let request = request(url: "\(apiEndpoint)/list/\(listID)/task?archived=\(archived ? "true" : "false")&page=\(page)&\(order.rawValue)&reverse=\(reversed ? "true" : "false")&subtasks=\(includeSubtasks ? "true" : "false&\(statusQuery)&include_closed=\(includeClosed ? "true" : "false")")",
                           method: .GET)
     // TODO: assignees; tags; due_date_gt; due_date_lt; date_created_gt; date_created_lt; date_updated_gt; date_updated_lt; custom_fields
     return await withCheckedContinuation { (continuation: CheckedContinuation<CUTasksList?, Never>) in

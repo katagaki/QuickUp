@@ -44,6 +44,9 @@ struct ListDetailView: View {
                 Divider()
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
                 Text("Updated: " + toReadable(task.date_updated))
+                Link(destination: URL(string: task.url)!) {
+                    Text("Open in ClickUp")
+                }
             } else {
                 Text("Select a task to view its details.")
                 Spacer()
