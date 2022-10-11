@@ -36,7 +36,11 @@ struct ListView: View {
                     } label: {
                         Text(task.name)
                     }
-
+                    .onAppear {
+                        Task {
+                            await self.loadNextPage(checking: task)
+                        }
+                    }
                 }
             }
             .listStyle(.plain)
