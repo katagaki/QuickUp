@@ -67,7 +67,7 @@ struct ListView: View {
                 }
             }
         } else {
-            tasks = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true)?.tasks ?? []
+            tasks = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true)?.tasksArranged() ?? []
         }
     }
     

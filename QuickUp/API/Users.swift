@@ -12,7 +12,7 @@ struct CUMember: Codable {
 }
 
 struct CUMemberInfo: Codable {
-    var id: Int
+    var id: Int?
     var username: String?
     var color: String?
     var initials: String?

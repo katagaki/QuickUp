@@ -9,6 +9,22 @@ import Foundation
 
 struct CUTasksList: Codable {
     var tasks: [CUTask]
+    
+    // MARK: QuickUp customization
+    
+    func tasksArranged() -> [CUTask] {
+        var newTasks = tasks
+        for task in newTasks {
+            if let parent = task.parent {
+                if let index = newTasks.firstIndex(where: { $0.id == task.id }),
+                   let parentIndex = newTasks.firstIndex(where: { $0.id == parent }){
+                    newTasks.move(fromOffsets: IndexSet(integer: index), toOffset: parentIndex + 1)
+                }
+            }
+        }
+        return newTasks
+    }
+    
 }
 
 struct CUTask: Codable, Identifiable {
