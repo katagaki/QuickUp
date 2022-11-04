@@ -48,8 +48,15 @@ struct ListDetailView: View {
                 Divider()
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
                 Text("Updated: " + toReadable(task.date_updated))
-                Link(destination: URL(string: task.url)!) {
-                    Text("Open in ClickUp")
+                HStack(spacing: 0) {
+                    Text("Open in ")
+                    Link(destination: URL(string: task.url)!) {
+                        Text("Website")
+                    }
+                    Text(" | ")
+                    Link(destination: URL(string: task.desktopClientURL())!) {
+                        Text("Desktop Client")
+                    }
                 }
             } else {
                 Text("Select a task to view its details.")

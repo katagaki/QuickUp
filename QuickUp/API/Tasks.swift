@@ -60,6 +60,13 @@ struct CUTask: Codable, Identifiable {
     var project: CUFolder
     var folder: CUFolder
     var space: CUSpace
+    
+    // MARK: QuickUp customization
+    
+    func desktopClientURL() -> String {
+        url.replacingOccurrences(of: "https://app.clickup.com/", with: "clickup://")
+    }
+    
 }
 
 struct CUTaskChecklist: Codable {
