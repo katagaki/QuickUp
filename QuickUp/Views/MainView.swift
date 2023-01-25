@@ -72,7 +72,9 @@ struct MainView: View {
             }
             if workspaces.count > 0 {
                 if let spacesList = await getSpaces(teamID: workspaces[0].id) {
-                    spaces = spacesList.spaces
+                    spaces = spacesList.spaces.sorted(by: { a, b in
+                        (a.name ?? "").lowercased() < (b.name ?? "").lowercased()
+                    })
                 }
             }
             for i in spaces.indices {
