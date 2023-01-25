@@ -13,12 +13,16 @@ struct ListTableView: View {
     
     @Binding var tasks: [CUTask]
     @Binding var selectedTaskID: CUTask.ID?
+    @State var sortOrder: [KeyPathComparator<CUTask>] = [
+        .init(\.name, order: SortOrder.forward),
+        .init(\.status.status, order: SortOrder.forward)
+    ]
     
     var body: some View {
-        Table(tasks, selection: $selectedTaskID) {
+        Table(tasks, selection: $selectedTaskID, sortOrder: $sortOrder) {
             TableColumn("Title", value: \.name)
                 .width(min: 300.0)
-            TableColumn("Status") { task in
+            TableColumn("Status", value: \.status.status) { task in
                 Text(task.status.status.localizedUppercase)
                     .foregroundColor(Color(hex: task.status.color))
                     .onAppear {
@@ -28,6 +32,9 @@ struct ListTableView: View {
                     }
             }
             .width(min: 100.0, ideal: 125.0, max: 200.0)
+        }
+        .onChange(of: sortOrder) { sortOrder in
+            tasks.sort(using: sortOrder)
         }
     }
 }
