@@ -46,18 +46,48 @@ struct ListDetailView: View {
                 }
                 Spacer()
                 Divider()
-                Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
-                Text("Updated: " + toReadable(task.date_updated))
-                HStack(spacing: 0) {
-                    Text("Open in ")
-                    Link(destination: URL(string: task.url)!) {
-                        Text("Website")
-                    }
-                    Text(" | ")
-                    Link(destination: URL(string: task.desktopClientURL())!) {
-                        Text("Desktop Client")
+                Group {
+                    Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
+                    Text("Updated: " + toReadable(task.date_updated))
+                    Divider()
+                    HStack(spacing: 4.0) {
+                        Button {
+                            #if os(iOS)
+                            UIPasteboard.general.string = task.url
+                            #elseif os(macOS)
+                            let pasteboard = NSPasteboard.general
+                            pasteboard.declareTypes([.string], owner: nil)
+                            pasteboard.setString(task.url, forType: .string)
+                            #endif
+                        } label: {
+                            Text("Copy Link")
+                        }
+                        #if os(iOS)
+                        Spacer()
+                        #endif
+                        Button {
+                            #if os(iOS)
+                            UIApplication.shared.open(URL(string: task.url)!)
+                            #elseif os(macOS)
+                            NSWorkspace.shared.open(URL(string: task.url)!)
+                            #endif
+                        } label: {
+                            #if os(iOS)
+                            Image(systemName: "safari")
+                            #elseif os(macOS)
+                            Text("Open in Website")
+                            #endif
+                        }
+                        #if os(macOS)
+                        Button {
+                            NSWorkspace.shared.open(URL(string: task.desktopClientURL())!)
+                        } label: {
+                            Text("Open in ClickUp.app")
+                        }
+                        #endif
                     }
                 }
+                    
             } else {
                 Text("Select a task to view its details.")
                 Spacer()
