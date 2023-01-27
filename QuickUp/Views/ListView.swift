@@ -52,6 +52,17 @@ struct ListView: View {
         .task {
             await loadNextPage(checking: nil)
         }
+        #if os(iOS)
+        .toolbar() {
+            ToolbarItem(placement: .confirmationAction) {
+                Button {
+                    // TODO: Show sort menu
+                } label: {
+                    Image(systemName: "line.horizontal.3.decrease.circle")
+                }
+            }
+        }
+        #endif
         .navigationTitle(list.name)
     }
     

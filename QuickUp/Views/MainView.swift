@@ -11,57 +11,82 @@ struct MainView: View {
     
     @State var workspaces: [CUWorkspace] = []
     @State var spaces: [CUSpace] = []
+    @State var filteredFolders: [CUFolder] = []
     @State var searchTerm: String = ""
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(spaces, id: \.id) { space in
-                    Section {
-                        ForEach(space.folders ?? [], id: \.id) { folder in
-                            NavigationLink {
-                                #if os(macOS)
-                                NavigationView {
+                if searchTerm.count == 0 {
+                    ForEach(spaces, id: \.id) { space in
+                        Section {
+                            ForEach(space.folders ?? [], id: \.id) { folder in
+                                NavigationLink {
+                                    #if os(macOS)
+                                    NavigationView {
+                                        FolderView(folder: folder)
+                                    }
+                                    #else
                                     FolderView(folder: folder)
-                                }
-                                #else
-                                FolderView(folder: folder)
-                                #endif
-                            } label: {
-                                HStack(spacing: 8.0) {
-                                    Image(systemName: "folder.fill")
-                                    Text(folder.name)
+                                    #endif
+                                } label: {
+                                    HStack(spacing: 8.0) {
+                                        Image(systemName: "folder.fill")
+                                        Text(folder.name)
+                                    }
                                 }
                             }
-                        }
-                        ForEach(space.lists ?? [], id: \.id) { list in
-                            NavigationLink {
-                                ListView(list: list)
-                            } label: {
-                                HStack(spacing: 8.0) {
-                                    Image(systemName: "list.dash")
-                                    Text(list.name)
+                            ForEach(space.lists ?? [], id: \.id) { list in
+                                NavigationLink {
+                                    ListView(list: list)
+                                } label: {
+                                    HStack(spacing: 8.0) {
+                                        Image(systemName: "list.dash")
+                                        Text(list.name)
+                                    }
                                 }
+                                
                             }
-
-                        }
-                    } header: {
-                        HStack(spacing: 8.0) {
-                            Text(space.name ?? "Untitled Space")
-                            if space.private! {
-                                Image(systemName: "lock.fill")
+                        } header: {
+                            HStack(spacing: 8.0) {
+                                Text(space.name ?? "Untitled Space")
+                                if space.private! {
+                                    Image(systemName: "lock.fill")
+                                }
                             }
                         }
                     }
-//                    #if os(macOS)
-//                    .collapsible(true)
-//                    #endif
+                } else {
+                    ForEach(filteredFolders, id: \.id) { folder in
+                        NavigationLink {
+                            #if os(macOS)
+                            NavigationView {
+                                FolderView(folder: folder)
+                            }
+                            #else
+                            FolderView(folder: folder)
+                            #endif
+                        } label: {
+                            HStack(spacing: 8.0) {
+                                Image(systemName: "folder.fill")
+                                Text(folder.name)
+                            }
+                        }
+                    }
                 }
             }
             .listStyle(.sidebar)
-            .searchable(text: $searchTerm)
+            .searchable(text: $searchTerm, placement: .sidebar, prompt: "Search Folders")
             .onChange(of: searchTerm, perform: { newValue in
-                // TODO: Search tasks
+                filteredFolders.removeAll()
+                for space in spaces {
+                    filteredFolders.append(contentsOf: space.folders?.filter({ folder in
+                        folder.name.lowercased().contains(searchTerm.lowercased())
+                    }) ?? [])
+                }
+                filteredFolders.sort(by: { a, b in
+                    a.name.lowercased() < b.name.lowercased()
+                })
             })
             .navigationTitle("Spaces")
         }
