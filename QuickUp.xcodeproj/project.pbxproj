@@ -42,6 +42,7 @@
 		D03F05182983B179000D036A /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
 		D03F051A2983B1D4000D036A /* TaskToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskToolbarView.swift; sourceTree = "<group>"; };
 		D03F051C2983BC65000D036A /* TaskCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCommentsView.swift; sourceTree = "<group>"; };
+		D03F051E2983D422000D036A /* APIKeys-Sample.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "APIKeys-Sample.plist"; sourceTree = "<group>"; };
 		D040A09628F509A3002979A6 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		E411092628EFF82D0073725E /* QuickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411092928EFF82D0073725E /* QuickUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickUpApp.swift; sourceTree = "<group>"; };
@@ -101,6 +102,7 @@
 			children = (
 				E411094428F00D200073725E /* Info.plist */,
 				D040A09628F509A3002979A6 /* APIKeys.plist */,
+				D03F051E2983D422000D036A /* APIKeys-Sample.plist */,
 				E411092928EFF82D0073725E /* QuickUpApp.swift */,
 				E411093828EFF83E0073725E /* API */,
 				E411093B28EFF8A10073725E /* Utilities */,
