@@ -24,7 +24,12 @@ struct ListTableView: View {
                 .width(min: 300.0)
             TableColumn("Status", value: \.status.status) { task in
                 Text(task.status.status.localizedUppercase)
-                    .foregroundColor(Color(hex: task.status.color))
+                    .padding(4.0)
+                    .background {
+                        RoundedRectangle(cornerRadius: 4.0)
+                            .foregroundColor(Color(hex: task.status.color))
+                            .opacity(0.25)
+                    }
                     .onAppear {
                         Task {
                             await self.loadNextPage(task)

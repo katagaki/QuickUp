@@ -34,6 +34,9 @@ struct ListView: View {
                     NavigationLink {
                         ListDetailView(tasks: $tasks, selectedTaskID: $selectedTaskID, task: task)
                     } label: {
+                        Circle()
+                            .foregroundColor(Color(hex: task.status.color))
+                            .frame(width: 8.0, height: 8.0)
                         Text(task.name)
                     }
                     .onAppear {
@@ -57,7 +60,6 @@ struct ListView: View {
             if !isLoading {
                 let thresholdIndex = tasks.index(tasks.endIndex, offsetBy: -10)
                 if tasks.firstIndex(where: { $0.id == currentTask.id }) == thresholdIndex {
-                    print(currentTask.id)
                     isLoading = true
                     currentPage += 1
                     if let tasksList = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true) {

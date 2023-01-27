@@ -13,81 +13,47 @@ struct ListDetailView: View {
     @Binding var selectedTaskID: CUTask.ID?
     
     @State var task: CUTask?
+    @State var comments: [CUTaskComment] = []
+    
+    @State var section: Int = 0
     
     var body: some View {
         VStack(alignment: .leading, spacing: 8.0) {
             if let task = task {
-                HStack(alignment: .center, spacing: 4.0) {
-                    Text(task.name)
-                        .font(.title2)
-                }
+                TaskHeaderView(task: self.$task)
                 Divider()
-                HStack(alignment: .center, spacing: 4.0) {
-                    Text(task.status.status.uppercased())
-                        .foregroundColor(Color(hex: task.status.color))
-                        .font(.system(.subheadline))
-                    Spacer()
-                    Text(task.custom_id != nil ? task.custom_id! : task.id)
-                        .font(.system(.subheadline, design: .monospaced))
-                        .padding(4.0)
-                        .overlay {
-                            RoundedRectangle(cornerRadius: 4.0)
-                                .strokeBorder()
-                                .foregroundColor(.primary)
-                                .opacity(0.5)
-                        }
-                }
-                Divider()
-                if #available(macOS 13.0, *) {
-                    TextEditor(text: .constant(task.description ?? ""))
-                        .scrollContentBackground(.hidden)
-                } else {
-                    TextEditor(text: .constant(task.description ?? ""))
-                }
-                Spacer()
-                Divider()
-                Group {
-                    Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
-                    Text("Updated: " + toReadable(task.date_updated))
-                    Divider()
-                    HStack(spacing: 4.0) {
-                        Button {
-                            #if os(iOS)
-                            UIPasteboard.general.string = task.url
-                            #elseif os(macOS)
-                            let pasteboard = NSPasteboard.general
-                            pasteboard.declareTypes([.string], owner: nil)
-                            pasteboard.setString(task.url, forType: .string)
-                            #endif
-                        } label: {
-                            Text("Copy Link")
-                        }
-                        #if os(iOS)
-                        Spacer()
-                        #endif
-                        Button {
-                            #if os(iOS)
-                            UIApplication.shared.open(URL(string: task.url)!)
-                            #elseif os(macOS)
-                            NSWorkspace.shared.open(URL(string: task.url)!)
-                            #endif
-                        } label: {
-                            #if os(iOS)
-                            Image(systemName: "safari")
-                            #elseif os(macOS)
-                            Text("Open in Website")
-                            #endif
-                        }
-                        #if os(macOS)
-                        Button {
-                            NSWorkspace.shared.open(URL(string: task.desktopClientURL())!)
-                        } label: {
-                            Text("Open in ClickUp.app")
-                        }
-                        #endif
+                #if os(macOS)
+                VSplitView {
+                    if #available(macOS 13.0, *) {
+                        TextEditor(text: .constant(task.description ?? ""))
+                            .font(.body)
+                            .scrollContentBackground(.hidden)
+                    } else {
+                        TextEditor(text: .constant(task.description ?? ""))
+                            .font(.body)
                     }
+                    TaskCommentsView(comments: $comments)
+                        .frame(maxWidth: .infinity, minHeight: 100.0)
                 }
-                    
+                Divider()
+                #else
+                switch section {
+                case 1:
+                    TaskCommentsView(comments: $comments)
+                default:
+                    TextEditor(text: .constant(task.description ?? ""))
+                        .font(.body)
+                }
+                Picker("Section", selection: $section) {
+                    Text("Description").tag(0)
+                    Text("Comments").tag(1)
+                }
+                .pickerStyle(.segmented)
+                #endif
+                Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
+                Text("Updated: " + toReadable(task.date_updated))
+                Divider()
+                TaskToolbarView(task: self.$task)
             } else {
                 Text("Select a task to view its details.")
                 Spacer()
@@ -97,9 +63,17 @@ struct ListDetailView: View {
             if let selectedTaskID = (selectedTaskID),
                let selectedTask = tasks.first(where: {$0.id == selectedTaskID.description}) {
                 task = selectedTask
+                Task {
+                    comments = await getComments(taskID: selectedTask.id)?.comments ?? []
+                }
             }
         }
         #if os(iOS)
+        .task {
+            if let task = task {
+                comments = await getComments(taskID: task.id)?.comments ?? []
+            }
+        }
         .padding()
         .navigationBarTitleDisplayMode(.inline)
         #endif

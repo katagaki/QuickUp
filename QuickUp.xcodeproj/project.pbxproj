@@ -7,11 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D01BBF74298139FD0075DFE8 /* Comments.swift in Sources */ = {isa = PBXBuildFile; fileRef = D01BBF73298139FD0075DFE8 /* Comments.swift */; };
+		D03F05172983AFD2000D036A /* TaskCommentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F05162983AFD2000D036A /* TaskCommentView.swift */; };
+		D03F05192983B179000D036A /* TaskHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F05182983B179000D036A /* TaskHeaderView.swift */; };
+		D03F051B2983B1D4000D036A /* TaskToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F051A2983B1D4000D036A /* TaskToolbarView.swift */; };
+		D03F051D2983BC65000D036A /* TaskCommentsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D03F051C2983BC65000D036A /* TaskCommentsView.swift */; };
 		D040A09728F509A3002979A6 /* APIKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = D040A09628F509A3002979A6 /* APIKeys.plist */; };
 		E411092A28EFF82D0073725E /* QuickUpApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411092928EFF82D0073725E /* QuickUpApp.swift */; };
 		E411092C28EFF82D0073725E /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411092B28EFF82D0073725E /* MainView.swift */; };
 		E411092E28EFF82E0073725E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E411092D28EFF82E0073725E /* Assets.xcassets */; };
-		E411093128EFF82E0073725E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E411093028EFF82E0073725E /* Preview Assets.xcassets */; };
 		E411093A28EFF8840073725E /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093928EFF8840073725E /* Global.swift */; };
 		E411093D28EFF8AF0073725E /* URLRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093C28EFF8AF0073725E /* URLRequest.swift */; };
 		E411093F28EFF9F70073725E /* Workspaces.swift in Sources */ = {isa = PBXBuildFile; fileRef = E411093E28EFF9F70073725E /* Workspaces.swift */; };
@@ -33,12 +37,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D01BBF73298139FD0075DFE8 /* Comments.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Comments.swift; sourceTree = "<group>"; };
+		D03F05162983AFD2000D036A /* TaskCommentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCommentView.swift; sourceTree = "<group>"; };
+		D03F05182983B179000D036A /* TaskHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskHeaderView.swift; sourceTree = "<group>"; };
+		D03F051A2983B1D4000D036A /* TaskToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskToolbarView.swift; sourceTree = "<group>"; };
+		D03F051C2983BC65000D036A /* TaskCommentsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCommentsView.swift; sourceTree = "<group>"; };
 		D040A09628F509A3002979A6 /* APIKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = APIKeys.plist; sourceTree = "<group>"; };
 		E411092628EFF82D0073725E /* QuickUp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = QuickUp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E411092928EFF82D0073725E /* QuickUpApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuickUpApp.swift; sourceTree = "<group>"; };
 		E411092B28EFF82D0073725E /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
 		E411092D28EFF82E0073725E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		E411093028EFF82E0073725E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		E411093228EFF82E0073725E /* QuickUp.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = QuickUp.entitlements; sourceTree = "<group>"; };
 		E411093928EFF8840073725E /* Global.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Global.swift; sourceTree = "<group>"; };
 		E411093C28EFF8AF0073725E /* URLRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLRequest.swift; sourceTree = "<group>"; };
@@ -99,17 +107,8 @@
 				E411094728F00E5C0073725E /* Views */,
 				E411092D28EFF82E0073725E /* Assets.xcassets */,
 				E411093228EFF82E0073725E /* QuickUp.entitlements */,
-				E411092F28EFF82E0073725E /* Preview Content */,
 			);
 			path = QuickUp;
-			sourceTree = "<group>";
-		};
-		E411092F28EFF82E0073725E /* Preview Content */ = {
-			isa = PBXGroup;
-			children = (
-				E411093028EFF82E0073725E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
 			sourceTree = "<group>";
 		};
 		E411093828EFF83E0073725E /* API */ = {
@@ -125,6 +124,7 @@
 				E411094A28F00F4A0073725E /* Lists.swift */,
 				E4A86E0228F106AE003A7D09 /* Tasks.swift */,
 				E4A86E0428F10886003A7D09 /* CustomFields.swift */,
+				D01BBF73298139FD0075DFE8 /* Comments.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -148,6 +148,10 @@
 				E411094E28F0150D0073725E /* ListView.swift */,
 				E4A6378A28F137F6005C9789 /* ListTableView.swift */,
 				E4A6378C28F137FD005C9789 /* ListDetailView.swift */,
+				D03F05182983B179000D036A /* TaskHeaderView.swift */,
+				D03F051C2983BC65000D036A /* TaskCommentsView.swift */,
+				D03F05162983AFD2000D036A /* TaskCommentView.swift */,
+				D03F051A2983B1D4000D036A /* TaskToolbarView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -211,7 +215,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D040A09728F509A3002979A6 /* APIKeys.plist in Resources */,
-				E411093128EFF82E0073725E /* Preview Assets.xcassets in Resources */,
 				E411092E28EFF82E0073725E /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -223,11 +226,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D03F05192983B179000D036A /* TaskHeaderView.swift in Sources */,
+				D03F051B2983B1D4000D036A /* TaskToolbarView.swift in Sources */,
 				E411093F28EFF9F70073725E /* Workspaces.swift in Sources */,
 				E411094B28F00F4A0073725E /* Lists.swift in Sources */,
 				E411092C28EFF82D0073725E /* MainView.swift in Sources */,
 				E411092A28EFF82D0073725E /* QuickUpApp.swift in Sources */,
 				E411094D28F012240073725E /* Statuses.swift in Sources */,
+				D03F051D2983BC65000D036A /* TaskCommentsView.swift in Sources */,
 				E411095128F017D80073725E /* CodableIgnored.swift in Sources */,
 				E4A6378728F132F3005C9789 /* Date.swift in Sources */,
 				E411094928F00F460073725E /* Folders.swift in Sources */,
@@ -238,8 +244,10 @@
 				E411093D28EFF8AF0073725E /* URLRequest.swift in Sources */,
 				E411095328F01AE70073725E /* Priorities.swift in Sources */,
 				E4A86E0328F106AE003A7D09 /* Tasks.swift in Sources */,
+				D03F05172983AFD2000D036A /* TaskCommentView.swift in Sources */,
 				E411094328F001540073725E /* Users.swift in Sources */,
 				E4A86E0528F10886003A7D09 /* CustomFields.swift in Sources */,
+				D01BBF74298139FD0075DFE8 /* Comments.swift in Sources */,
 				E4A6378D28F137FD005C9789 /* ListDetailView.swift in Sources */,
 				E4A6378928F136E0005C9789 /* Color.swift in Sources */,
 				E4A6378B28F137F6005C9789 /* ListTableView.swift in Sources */,
@@ -377,7 +385,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"QuickUp/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -419,7 +426,6 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"QuickUp/Preview Content\"";
 				DEVELOPMENT_TEAM = YYM4Z6MU8F;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

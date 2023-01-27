@@ -74,7 +74,7 @@ struct CUTaskChecklist: Codable {
     var task_id: String
     var name: String
     var date_created: String
-    var orderindex: Int
+    var orderindex: Double
     var creator: Int
     var resolved: Int
     var unresolved: Int
@@ -84,7 +84,7 @@ struct CUTaskChecklist: Codable {
 struct CUTaskChecklistItem: Codable {
     var id: String
     var name: String
-    var orderindex: Int
+    var orderindex: Double
     var assignee: CUMemberInfo?
     var group_assignee: String?
     var resolved: Bool
@@ -113,7 +113,7 @@ struct CUTaskLink: Codable {
     var task_id: String
     var link_id: String
     var date_created: String
-    var userid: String
+    var userid: String?
     var workspace_id: String?
 }
 
@@ -132,10 +132,10 @@ func getTasks(listID: String,
               includeSubtasks: Bool = false,
               filterBy statuses: [String] = [],
               includeClosed: Bool = false) async -> CUTasksList? {
-    let statusQuery = statuses.reduce("statuses=") { s1, s2 in
+    let statusQuery = (statuses.count == 0 ? "" : statuses.reduce("&statuses=") { s1, s2 in
         s1 + "&statuses=" + s2
-    }
-    let request = request(url: "\(apiEndpoint)/list/\(listID)/task?archived=\(archived ? "true" : "false")&page=\(page)&\(order.rawValue)&reverse=\(reversed ? "true" : "false")&subtasks=\(includeSubtasks ? "true" : "false")&\(statusQuery)&include_closed=\(includeClosed ? "true" : "false")",
+    })
+    let request = request(url: "\(apiEndpoint)/list/\(listID)/task?archived=\(archived ? "true" : "false")&page=\(page)&order_by=\(order.rawValue)&reverse=\(reversed ? "true" : "false")\(includeSubtasks ? "&subtasks=true" : "")&\(statusQuery)&include_closed=\(includeClosed ? "true" : "false")",
                           method: .GET)
     // TODO: assignees; tags; due_date_gt; due_date_lt; date_created_gt; date_created_lt; date_updated_gt; date_updated_lt; custom_fields
     return await withCheckedContinuation { (continuation: CheckedContinuation<CUTasksList?, Never>) in
