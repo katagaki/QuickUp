@@ -11,10 +11,20 @@ import SwiftUI
 struct QuickUpApp: App {
     var body: some Scene {
         WindowGroup {
-            MainView()
+            #if os(macOS)
+            SpacesView()
+            #else
+            MainTabView()
+            #endif
         }
         .commands {
             SidebarCommands()
+            CommandGroup(replacing: .appSettings) {
+                Button("Settings") {
+                    // TODO: Implement view for inputting API key
+                }
+                .keyboardShortcut(",", modifiers: .command)
+            }
         }
     }
 }

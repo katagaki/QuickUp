@@ -1,5 +1,5 @@
 //
-//  MainView.swift
+//  SpacesView.swift
 //  QuickUp
 //
 //  Created by 堅書 on 7/10/22.
@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct MainView: View {
+struct SpacesView: View {
     
     @State var workspaces: [CUWorkspace] = []
     @State var spaces: [CUSpace] = []
@@ -128,6 +128,6 @@ struct MainView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MainView()
+        SpacesView()
     }
 }
