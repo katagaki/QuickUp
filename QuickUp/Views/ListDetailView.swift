@@ -22,8 +22,10 @@ struct ListDetailView: View {
             if let task = task {
                 TaskHeaderView(task: self.$task)
                 Divider()
-                #if os(macOS)
-                VSplitView {
+                switch section {
+                case 1:
+                    TaskCommentsView(comments: $comments)
+                default:
                     if #available(macOS 13.0, *) {
                         TextEditor(text: .constant(task.description ?? ""))
                             .font(.body)
@@ -32,24 +34,12 @@ struct ListDetailView: View {
                         TextEditor(text: .constant(task.description ?? ""))
                             .font(.body)
                     }
-                    TaskCommentsView(comments: $comments)
-                        .frame(maxWidth: .infinity, minHeight: 100.0)
                 }
-                Divider()
-                #else
-                switch section {
-                case 1:
-                    TaskCommentsView(comments: $comments)
-                default:
-                    TextEditor(text: .constant(task.description ?? ""))
-                        .font(.body)
-                }
-                Picker("Section", selection: $section) {
+                Picker(selection: $section) {
                     Text("Description").tag(0)
                     Text("Comments").tag(1)
-                }
+                } label: { }
                 .pickerStyle(.segmented)
-                #endif
                 Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
                 Text("Updated: " + toReadable(task.date_updated))
                 Divider()
