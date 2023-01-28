@@ -24,6 +24,7 @@ struct ListTableView: View {
                 .width(min: 300.0)
             TableColumn("Status", value: \.status.status) { task in
                 Text(task.status.status.localizedUppercase)
+                    .font(.caption)
                     .padding(4.0)
                     .background {
                         RoundedRectangle(cornerRadius: 4.0)
