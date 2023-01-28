@@ -19,7 +19,7 @@ struct TaskCommentView: View {
             Text(comment.comment_text.trimmingCharacters(in: .whitespacesAndNewlines))
                 .font(.body)
         }
-        .padding(.bottom, 4.0)
+        .padding(.bottom, 8.0)
         .frame(minWidth: 0, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
     }
 }

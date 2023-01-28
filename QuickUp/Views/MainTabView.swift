@@ -8,24 +8,19 @@
 import SwiftUI
 
 struct MainTabView: View {
+    
     var body: some View {
         TabView {
-            SpacesView()
+            SpacesView(appState: .constant(.spaces))
                 .tabItem {
                     Image("IconSpace")
                     Text("Spaces")
                 }
-            Color.clear // TODO: Implement view for inputting API key
+            SettingsView(appState: .constant(.settings)) // TODO: Implement view for inputting API key
                 .tabItem {
                     Image(systemName: "gear")
                     Text("Settings")
                 }
         }
-    }
-}
-
-struct TabView_Previews: PreviewProvider {
-    static var previews: some View {
-        MainTabView()
     }
 }

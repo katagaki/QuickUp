@@ -11,15 +11,12 @@ struct FolderView: View {
     
     @State var folder: CUFolder
     @State var folderLists: [CUList] = []
+    @State var loadingLists: [String:Bool] = [:]
     
     var body: some View {
         List {
             ForEach(folderLists, id: \.id) { list in
-                NavigationLink {
-                    ListView(list: list)
-                } label: {
-                    Text(list.name)
-                }
+                ListNavigationLink(loadingLists: $loadingLists, list: list)
             }
         }
         .task {

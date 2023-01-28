@@ -29,6 +29,10 @@ struct CUList: Codable {
     var override_statuses: Bool?
     var statuses: [CUStatus]?
     var permission_level: String?
+    
+    // MARK: QuickUp customization
+    
+    @CodableIgnored var isLoading: Bool? = false
 }
 
 func getFolderLessLists(spaceID: String, archived: Bool = false) async -> CUListsList? {

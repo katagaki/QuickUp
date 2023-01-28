@@ -12,11 +12,12 @@ struct ListView: View {
     
     @Environment(\.openURL) var openURL
     
+    @Binding var loadingLists: [String:Bool]
+    
     @State var list: CUList
     @State var tasks: [CUTask] = []
     @State var selectedTaskID: CUTask.ID?
     @State var currentPage: Int = 0
-    @State var isLoading: Bool = false
     
     var body: some View {
         GeometryReader { geometry in
@@ -68,19 +69,21 @@ struct ListView: View {
     
     func loadNextPage(checking currentTask: CUTask?) async {
         if let currentTask = currentTask {
-            if !isLoading {
+            if loadingLists[list.id] ?? false {
                 let thresholdIndex = tasks.index(tasks.endIndex, offsetBy: -10)
                 if tasks.firstIndex(where: { $0.id == currentTask.id }) == thresholdIndex {
-                    isLoading = true
+                    loadingLists[list.id] = true
                     currentPage += 1
                     if let tasksList = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true) {
                         tasks.append(contentsOf: tasksList.tasks)
-                        isLoading = false
+                        loadingLists[list.id] = false
                     }
                 }
             }
         } else {
+            loadingLists[list.id] = true
             tasks = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true)?.tasksArranged() ?? []
+            loadingLists[list.id] = false
         }
     }
     

@@ -16,9 +16,14 @@ struct TaskCommentsView: View {
             VStack (spacing: 2.0) {
                 ForEach(comments, id: \.id) { comment in
                     TaskCommentView(comment: comment)
+                    Divider()
+                        .padding(.bottom, 8.0)
                 }
             }
-            .padding(5.0)
+            .padding([.leading, .trailing], 5.0)
+            #if os(iOS)
+            .padding([.top], 5.0)
+            #endif
         }
     }
 }

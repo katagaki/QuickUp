@@ -9,10 +9,13 @@ import SwiftUI
 
 @main
 struct QuickUpApp: App {
+    
+    @ObservedObject var appState = AppState()
+    
     var body: some Scene {
         WindowGroup {
             #if os(macOS)
-            SpacesView()
+            SpacesView(appState: $appState.current)
             #else
             MainTabView()
             #endif
@@ -21,9 +24,15 @@ struct QuickUpApp: App {
             SidebarCommands()
             CommandGroup(replacing: .appSettings) {
                 Button("Settings") {
-                    // TODO: Implement view for inputting API key
+                    appState.current = .settings
                 }
                 .keyboardShortcut(",", modifiers: .command)
+            }
+            CommandMenu("Workspace") {
+                Button("Switch Workspace...") {
+                    appState.current = .workspaceSelection
+                }
+                .keyboardShortcut("1", modifiers: [.command, .option])
             }
         }
     }

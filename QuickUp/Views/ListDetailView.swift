@@ -21,7 +21,11 @@ struct ListDetailView: View {
         VStack(alignment: .leading, spacing: 8.0) {
             if let task = task {
                 TaskHeaderView(task: self.$task)
-                Divider()
+                Picker(selection: $section) {
+                    Text("Task Details").tag(0)
+                    Text("Comments").tag(1)
+                } label: { }
+                .pickerStyle(.segmented)
                 switch section {
                 case 1:
                     TaskCommentsView(comments: $comments)
@@ -34,14 +38,10 @@ struct ListDetailView: View {
                         TextEditor(text: .constant(task.description ?? ""))
                             .font(.body)
                     }
+                    Divider()
+                    Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
+                    Text("Updated: " + toReadable(task.date_updated))
                 }
-                Picker(selection: $section) {
-                    Text("Description").tag(0)
-                    Text("Comments").tag(1)
-                } label: { }
-                .pickerStyle(.segmented)
-                Text("Created: " + toReadable(task.date_created) + " by " + (task.creator.username ?? "ClickUp User"))
-                Text("Updated: " + toReadable(task.date_updated))
                 Divider()
                 TaskToolbarView(task: self.$task)
             } else {
@@ -52,6 +52,7 @@ struct ListDetailView: View {
         .onChange(of: selectedTaskID) { _ in
             if let selectedTaskID = (selectedTaskID),
                let selectedTask = tasks.first(where: {$0.id == selectedTaskID.description}) {
+                comments.removeAll()
                 task = selectedTask
                 Task {
                     comments = await getComments(taskID: selectedTask.id)?.comments ?? []
