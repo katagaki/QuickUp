@@ -69,7 +69,7 @@ struct ListView: View {
     
     func loadNextPage(checking currentTask: CUTask?) async {
         if let currentTask = currentTask {
-            if loadingLists[list.id] ?? false {
+            if (loadingLists[list.id] ?? false) == false {
                 let thresholdIndex = tasks.index(tasks.endIndex, offsetBy: -10)
                 if tasks.firstIndex(where: { $0.id == currentTask.id }) == thresholdIndex {
                     loadingLists[list.id] = true
