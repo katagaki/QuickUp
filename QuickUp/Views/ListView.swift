@@ -37,10 +37,21 @@ struct ListView: View {
                     NavigationLink {
                         ListDetailView(tasks: $tasks, selectedTaskID: $selectedTaskID, task: task)
                     } label: {
-                        Circle()
-                            .foregroundColor(Color(hex: task.status.color))
-                            .frame(width: 8.0, height: 8.0)
-                        Text(task.name)
+                        if task.parent != nil {
+                            Spacer()
+                                .frame(width: 16.0)
+                            Circle()
+                                .foregroundColor(Color(hex: task.status.color))
+                                .frame(width: 8.0, height: 8.0)
+                            Text(task.name)
+                                .font(.body)
+                        } else {
+                            Circle()
+                                .foregroundColor(Color(hex: task.status.color))
+                                .frame(width: 8.0, height: 8.0)
+                            Text(task.name)
+                                .font(.body)
+                        }
                     }
                     .onAppear {
                         Task {
@@ -69,12 +80,20 @@ struct ListView: View {
         .toolbar() {
             ToolbarItem(placement: .primaryAction) {
                 Toggle(isOn: $loadsSubtasks) {
+                    #if os(iOS)
+                    Image(systemName: "arrow.turn.down.right")
+                    #else
                     Text("Show Subtasks")
+                    #endif
                 }
             }
             ToolbarItem(placement: .primaryAction) {
                 Toggle(isOn: $loadsClosed) {
+                    #if os(iOS)
+                    Image(systemName: "checkmark")
+                    #else
                     Text("Show Closed")
+                    #endif
                 }
             }
         }
