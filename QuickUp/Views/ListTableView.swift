@@ -17,11 +17,20 @@ struct ListTableView: View {
         .init(\.name, order: SortOrder.forward),
         .init(\.status.status, order: SortOrder.forward)
     ]
+    @Binding var loadsSubtasks: Bool
     
     var body: some View {
         Table(tasks, selection: $selectedTaskID, sortOrder: $sortOrder) {
-            TableColumn("Title", value: \.name)
-                .width(min: 300.0)
+            TableColumn("Title", value: \.name) { task in
+                if task.parent != nil {
+                    Text("      \(task.name)")
+                        .font(.body)
+                } else {
+                    Text(task.name)
+                        .font(.body)
+                }
+            }
+            .width(min: 300.0)
             TableColumn("Status", value: \.status.status) { task in
                 Text(task.status.status.localizedUppercase)
                     .font(.caption)
@@ -39,8 +48,20 @@ struct ListTableView: View {
             }
             .width(min: 100.0, ideal: 125.0, max: 200.0)
         }
+        .onChange(of: loadsSubtasks, perform: { newValue in
+            if newValue == true {
+                sortOrder = []
+            } else {
+                sortOrder  = [
+                    .init(\.name, order: SortOrder.forward),
+                    .init(\.status.status, order: SortOrder.forward)
+                ]
+            }
+        })
         .onChange(of: sortOrder) { sortOrder in
-            tasks.sort(using: sortOrder)
+            if !loadsSubtasks {
+                tasks.sort(using: sortOrder)
+            }
         }
     }
 }

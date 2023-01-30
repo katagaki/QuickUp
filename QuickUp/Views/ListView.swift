@@ -13,6 +13,8 @@ struct ListView: View {
     @Environment(\.openURL) var openURL
     
     @Binding var loadingLists: [String:Bool]
+    @State var loadsSubtasks: Bool = false
+    @State var loadsClosed: Bool = false
     
     @State var list: CUList
     @State var tasks: [CUTask] = []
@@ -23,7 +25,7 @@ struct ListView: View {
         GeometryReader { geometry in
             #if os(macOS)
             HSplitView {
-                ListTableView(loadNextPage: self.loadNextPage, tasks: $tasks, selectedTaskID: $selectedTaskID)
+                ListTableView(loadNextPage: self.loadNextPage, tasks: $tasks, selectedTaskID: $selectedTaskID, loadsSubtasks: $loadsSubtasks)
                 .layoutPriority(1)
                 ListDetailView(tasks: $tasks, selectedTaskID: $selectedTaskID)
                 .frame(minWidth: 300, maxWidth: .infinity, minHeight: 0, maxHeight: .infinity, alignment: .topLeading)
@@ -64,6 +66,30 @@ struct ListView: View {
             }
         }
         #endif
+        .toolbar() {
+            ToolbarItem(placement: .primaryAction) {
+                Toggle(isOn: $loadsSubtasks) {
+                    Text("Show Subtasks")
+                }
+            }
+            ToolbarItem(placement: .primaryAction) {
+                Toggle(isOn: $loadsClosed) {
+                    Text("Show Closed")
+                }
+            }
+        }
+        .onChange(of: loadsSubtasks, perform: { _ in
+            Task {
+                currentPage = 0
+                await loadNextPage(checking: nil)
+            }
+        })
+        .onChange(of: loadsClosed, perform: { _ in
+            Task {
+                currentPage = 0
+                await loadNextPage(checking: nil)
+            }
+        })
         .navigationTitle(list.name)
     }
     
@@ -74,7 +100,7 @@ struct ListView: View {
                 if tasks.firstIndex(where: { $0.id == currentTask.id }) == thresholdIndex {
                     loadingLists[list.id] = true
                     currentPage += 1
-                    if let tasksList = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true) {
+                    if let tasksList = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeSubtasks: loadsSubtasks, includeClosed: loadsClosed) {
                         tasks.append(contentsOf: tasksList.tasks)
                         loadingLists[list.id] = false
                     }
@@ -82,7 +108,7 @@ struct ListView: View {
             }
         } else {
             loadingLists[list.id] = true
-            tasks = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeClosed: true)?.tasksArranged() ?? []
+            tasks = await getTasks(listID: list.id, page: currentPage, orderBy: .ID, includeSubtasks: loadsSubtasks, includeClosed: loadsClosed)?.tasksArranged() ?? []
             loadingLists[list.id] = false
         }
     }
